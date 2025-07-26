@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Decision Tree</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="agent-decision-tree">
+        <!-- Context Bar -->
+        <div id="context-bar">
+            <span id="step-counter">Step 1</span>
+            <button id="start-over-btn">Start Over</button>
+        </div>
+
+        <!-- Main Question Panel -->
+        <div id="question-panel">
+            <h1 id="agent-question">Loading...</h1>
+            <p id="agent-guidance">Please wait...</p>
+        </div>
+
+        <!-- Options Grid -->
+        <div id="options-grid">
+            <!-- Options will be populated by JavaScript -->
+        </div>
+
+        <!-- Navigation Controls -->
+        <div id="nav-controls">
+            <button id="back-btn" class="nav-btn" disabled>← Back</button>
+            <button id="repeat-btn" class="nav-btn">🔄 Repeat Question</button>
+        </div>
+
+        <!-- Status Messages -->
+        <div id="status-message" class="hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
