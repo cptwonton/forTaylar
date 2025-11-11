@@ -206,18 +206,25 @@ function handleOptionClick(option) {
     }
 }
 
-// Handle article links (customize for MindTouch)
+// Handle article links - redirects to google, replace with proper article URLs
 function handleArticleLink(articleId) {
-    showStatus(`Redirecting to article: ${articleId}`, 'success');
+    // Map article IDs to example URLs
+    const articleUrls = {
+        'subscription-setup': 'https://www.google.com/search?q=subscription-setup',
+        'tv-hardware-issue': 'https://www.google.com/search?q=tv-hardware-troubleshooting',
+        'electrical-issue': 'https://www.google.com/search?q=electrical+issue'
+    };
     
-    // In MindTouch, you would replace this with actual article navigation
-    // For now, we'll just show a message
+    //default to https://www.google.com/search?q=... when there is no mapping above
+    const url = articleUrls[articleId] || `https://www.google.com/search?q=${articleId}`;
+    
+    showStatus(`Opening article: ${articleId}`, 'success');
+    
+    // Open URL in new tab
     setTimeout(() => {
-        if (confirm(`Would you like to open the article "${articleId}"?\n\nClick OK to simulate opening the article, or Cancel to continue troubleshooting.`)) {
-            // Simulate article opening
-            showStatus(`Article "${articleId}" opened in new tab`, 'success');
-        }
-    }, 500);
+        window.open(url, '_blank');
+        showStatus(`Article opened in new tab`, 'success');
+    }, 1000);
 }
 
 // Go back to previous node
